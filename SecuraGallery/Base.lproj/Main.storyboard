@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SecuraGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-75-39A">
+                                <rect key="frame" x="50" y="306.66666666666669" width="275" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="o1u-BF-cfF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-YC-ZHn">
+                                <rect key="frame" x="110" y="162" width="155" height="64.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="54"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNB-Uj-jwa">
+                                <rect key="frame" x="112" y="393" width="151" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="u4v-V4-FcO"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="lock.circle" catalog="system" title="pen">
+                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="34"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="unlockOpen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tcn-gt-0I5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rNB-Uj-jwa" firstAttribute="top" secondItem="E0X-75-39A" secondAttribute="bottom" constant="31.333333333333314" id="5l2-Qy-teC"/>
+                            <constraint firstItem="E0X-75-39A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="8pR-Ct-Swp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E0X-75-39A" secondAttribute="trailing" constant="50" id="EJ1-Vr-YZO"/>
+                            <constraint firstItem="rNB-Uj-jwa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="Fzb-a3-bd3"/>
+                            <constraint firstItem="xuA-YC-ZHn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="ZRq-Qh-Kpn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rNB-Uj-jwa" secondAttribute="bottom" constant="335" id="g9K-d4-WDF"/>
+                            <constraint firstItem="xuA-YC-ZHn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="k0D-7U-1Fa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rNB-Uj-jwa" secondAttribute="trailing" constant="112" id="oZp-nM-mhX"/>
+                            <constraint firstItem="E0X-75-39A" firstAttribute="top" secondItem="xuA-YC-ZHn" secondAttribute="bottom" constant="80" id="tPh-FX-Qls"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xuA-YC-ZHn" secondAttribute="trailing" constant="110" id="xDs-eT-gVv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pinField" destination="E0X-75-39A" id="xAn-RI-fwQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101.59999999999999" y="3.6945812807881775"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lock.circle" catalog="system" width="128" height="123"/>
+    </resources>
+</document>
