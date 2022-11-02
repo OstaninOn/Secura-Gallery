@@ -15,6 +15,7 @@
 		1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4429118C1400744C94 /* LaunchScreen.storyboard */; };
 		1F8E8D4F291198F900744C94 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4D291198F900744C94 /* GalleryViewController.swift */; };
 		1F8E8D50291198F900744C94 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4E291198F900744C94 /* GalleryViewController.xib */; };
+		79EEE2071C10961E84F4CBD4 /* Pods_SecuraGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C84205B395334FC1CCAB80D /* Pods_SecuraGallery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		1F8E8D4729118C1400744C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8E8D4D291198F900744C94 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F8E8D4E291198F900744C94 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		271D720087A5BD4BB1B8D217 /* Pods-SecuraGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecuraGallery.debug.xcconfig"; path = "Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery.debug.xcconfig"; sourceTree = "<group>"; };
+		5C84205B395334FC1CCAB80D /* Pods_SecuraGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecuraGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09F54DF958BB3AA9427D8D6 /* Pods-SecuraGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecuraGallery.release.xcconfig"; path = "Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EEE2071C10961E84F4CBD4 /* Pods_SecuraGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C78D893733279E200890361 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C84205B395334FC1CCAB80D /* Pods_SecuraGallery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1F8E8D2D29118C1300744C94 = {
 			isa = PBXGroup;
 			children = (
 				1F8E8D3829118C1300744C94 /* SecuraGallery */,
 				1F8E8D3729118C1300744C94 /* Products */,
+				7F007B732A4B06C62E6CA41A /* Pods */,
+				1C78D893733279E200890361 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +88,16 @@
 			path = SecuraGallery;
 			sourceTree = "<group>";
 		};
+		7F007B732A4B06C62E6CA41A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				271D720087A5BD4BB1B8D217 /* Pods-SecuraGallery.debug.xcconfig */,
+				A09F54DF958BB3AA9427D8D6 /* Pods-SecuraGallery.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F8E8D4A29118C1400744C94 /* Build configuration list for PBXNativeTarget "SecuraGallery" */;
 			buildPhases = (
+				9FC1EC8C12C0F2BC50621822 /* [CP] Check Pods Manifest.lock */,
 				1F8E8D3229118C1300744C94 /* Sources */,
 				1F8E8D3329118C1300744C94 /* Frameworks */,
 				1F8E8D3429118C1300744C94 /* Resources */,
+				44B038FF87E1343CED29307B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44B038FF87E1343CED29307B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FC1EC8C12C0F2BC50621822 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SecuraGallery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F8E8D3229118C1300744C94 /* Sources */ = {
@@ -290,6 +359,7 @@
 		};
 		1F8E8D4B29118C1400744C94 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 271D720087A5BD4BB1B8D217 /* Pods-SecuraGallery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -318,6 +388,7 @@
 		};
 		1F8E8D4C29118C1400744C94 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A09F54DF958BB3AA9427D8D6 /* Pods-SecuraGallery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
