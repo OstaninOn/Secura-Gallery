@@ -44,9 +44,7 @@ class GalleryViewController: UIViewController {
     
     func setImage(_ image: UIImage, withName name: String? = nil) {
         imageView.image = image
-        
-        
-        
+     
         let fileName = name ?? UUID().uuidString
         let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("png")
