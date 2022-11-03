@@ -15,7 +15,6 @@
 		1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4429118C1400744C94 /* LaunchScreen.storyboard */; };
 		1F8E8D4F291198F900744C94 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4D291198F900744C94 /* GalleryViewController.swift */; };
 		1F8E8D50291198F900744C94 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4E291198F900744C94 /* GalleryViewController.xib */; };
-		79EEE2071C10961E84F4CBD4 /* Pods_SecuraGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C84205B395334FC1CCAB80D /* Pods_SecuraGallery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		1F8E8D4D291198F900744C94 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F8E8D4E291198F900744C94 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
 		271D720087A5BD4BB1B8D217 /* Pods-SecuraGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecuraGallery.debug.xcconfig"; path = "Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery.debug.xcconfig"; sourceTree = "<group>"; };
-		5C84205B395334FC1CCAB80D /* Pods_SecuraGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecuraGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09F54DF958BB3AA9427D8D6 /* Pods-SecuraGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecuraGallery.release.xcconfig"; path = "Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79EEE2071C10961E84F4CBD4 /* Pods_SecuraGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +46,6 @@
 		1C78D893733279E200890361 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C84205B395334FC1CCAB80D /* Pods_SecuraGallery.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -94,7 +90,6 @@
 				271D720087A5BD4BB1B8D217 /* Pods-SecuraGallery.debug.xcconfig */,
 				A09F54DF958BB3AA9427D8D6 /* Pods-SecuraGallery.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
