@@ -20,18 +20,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dGH-dc-lPX">
-                    <rect key="frame" x="16" y="47" width="343" height="554"/>
+                    <rect key="frame" x="16" y="117" width="343" height="661"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="343" id="QkX-xW-pTd"/>
-                        <constraint firstAttribute="height" constant="554" id="byV-so-zOM"/>
+                        <constraint firstAttribute="height" constant="661" id="9Lh-ds-EFB"/>
+                        <constraint firstAttribute="width" constant="343" id="eQV-7n-txd"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1a-Rn-HLK">
-                    <rect key="frame" x="16" y="642" width="343" height="44"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system" title=" Add image">
-                        <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1a-Rn-HLK">
+                    <rect key="frame" x="292" y="47" width="67" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="67" id="qXA-Xs-LEW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="plus" catalog="system"/>
+                    <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="32"/>
                     </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kornerRadius">
+                            <integer key="value" value="33"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="pickImage:" destination="-1" eventType="touchUpInside" id="AaC-pJ-fLx"/>
                     </connections>
@@ -40,11 +50,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O1a-Rn-HLK" secondAttribute="bottom" constant="92" id="c3p-Sk-w0F"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O1a-Rn-HLK" secondAttribute="trailing" constant="16" id="cSE-s7-C9R"/>
-                <constraint firstItem="dGH-dc-lPX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="hql-fZ-RqL"/>
-                <constraint firstItem="O1a-Rn-HLK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="t02-qS-aXb"/>
-                <constraint firstItem="dGH-dc-lPX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ttR-Sv-DKs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dGH-dc-lPX" secondAttribute="trailing" constant="16" id="1LS-cZ-ClL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O1a-Rn-HLK" secondAttribute="trailing" constant="16" id="2S1-QC-GkG"/>
+                <constraint firstItem="dGH-dc-lPX" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="DmP-Rz-4mN"/>
+                <constraint firstItem="dGH-dc-lPX" firstAttribute="top" secondItem="O1a-Rn-HLK" secondAttribute="bottom" constant="20" id="F8t-E6-Z54"/>
+                <constraint firstItem="dGH-dc-lPX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="L9Z-3Z-QiN"/>
+                <constraint firstItem="O1a-Rn-HLK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Lqm-cM-s2Q"/>
+                <constraint firstItem="dGH-dc-lPX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="gtA-gi-rAS"/>
             </constraints>
             <point key="canvasLocation" x="101.59999999999999" y="20.689655172413794"/>
         </view>
