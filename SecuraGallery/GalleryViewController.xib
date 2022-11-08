@@ -27,7 +27,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1a-Rn-HLK">
-                    <rect key="frame" x="16" y="640" width="343" height="44"/>
+                    <rect key="frame" x="16" y="639" width="343" height="44"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system" title=" Add image">
                         <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
@@ -40,7 +40,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O1a-Rn-HLK" secondAttribute="bottom" constant="94" id="c3p-Sk-w0F"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O1a-Rn-HLK" secondAttribute="bottom" constant="95" id="c3p-Sk-w0F"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O1a-Rn-HLK" secondAttribute="trailing" constant="16" id="cSE-s7-C9R"/>
                 <constraint firstItem="dGH-dc-lPX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="hql-fZ-RqL"/>
                 <constraint firstItem="O1a-Rn-HLK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="t02-qS-aXb"/>
