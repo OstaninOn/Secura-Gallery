@@ -13,7 +13,7 @@ class GalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+     
     }
 
     @IBAction func pickImage(_ sender: Any) {
@@ -83,9 +83,7 @@ class GalleryViewController: UIViewController {
     
     present(pickerController, animated: true)
     }
-    
 }
-
 
 extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
    
@@ -107,4 +105,5 @@ extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationCon
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
 }
