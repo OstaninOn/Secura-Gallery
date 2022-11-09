@@ -63,6 +63,7 @@ class ViewController: UIViewController {
         navigation.modalPresentationStyle = .fullScreen
         present(navigation, animated: false)
         return
+        
     }
    
     @IBAction func showPinn(_ sender: Any) {
@@ -88,7 +89,7 @@ class ViewController: UIViewController {
             ) { success, error in
                 DispatchQueue.main.async {
                     guard success, error == nil else {
-                        self.statusLabel.text = "Your Biometric Status:\n" + "Failed"
+                        self.statusLabel.text = "No access:\n" + "Failed"
                         self.statusLabel.textColor = .red
                         self.showAlert(title: "ошибка", message: "попробуйте снова")
                         return
@@ -108,8 +109,8 @@ class ViewController: UIViewController {
             
         } else {
             if let error {
-                showAlert(title: "нет доступа", message: "\(error.localizedDescription)")
-            }
+                            showAlert(title: "нет доступа", message: "\(error.localizedDescription)")
+                        }
         }
     }
 }
