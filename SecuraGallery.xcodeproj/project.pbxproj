@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F7268E2291BEA0A00E04068 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7268E1291BEA0A00E04068 /* WebViewViewController.swift */; };
 		1F8E8D3A29118C1300744C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D3929118C1300744C94 /* AppDelegate.swift */; };
 		1F8E8D3C29118C1300744C94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D3B29118C1300744C94 /* SceneDelegate.swift */; };
 		1F8E8D3E29118C1300744C94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D3D29118C1300744C94 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F7268E1291BEA0A00E04068 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		1F8E8D3629118C1300744C94 /* SecuraGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecuraGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8E8D3929118C1300744C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8E8D3B29118C1300744C94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				1F8E8D3929118C1300744C94 /* AppDelegate.swift */,
 				1F8E8D3B29118C1300744C94 /* SceneDelegate.swift */,
 				1F8E8D3D29118C1300744C94 /* ViewController.swift */,
+				1F7268E1291BEA0A00E04068 /* WebViewViewController.swift */,
 				1F8E8D4D291198F900744C94 /* GalleryViewController.swift */,
 				1F8E8D4E291198F900744C94 /* GalleryViewController.xib */,
 				1F8E8D3F29118C1300744C94 /* Main.storyboard */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7268E2291BEA0A00E04068 /* WebViewViewController.swift in Sources */,
 				1F8E8D3E29118C1300744C94 /* ViewController.swift in Sources */,
 				1F8E8D4F291198F900744C94 /* GalleryViewController.swift in Sources */,
 				1F8E8D3A29118C1300744C94 /* AppDelegate.swift in Sources */,

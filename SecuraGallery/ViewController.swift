@@ -39,6 +39,17 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
     }
     
+    @IBAction func webButton(_ sender: UIButton) {
+        
+        guard let url = URL(string: "http://www.google.com") else {
+            return
+        }
+        let vc = WebViewViewController(url: url, title: "Google")
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+    
+    
     @objc private func hideKeyboard() {
         view.endEditing(true)
     }
