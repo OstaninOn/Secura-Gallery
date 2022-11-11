@@ -13,8 +13,7 @@ class GalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+     
     }
 
     @IBAction func pickImage(_ sender: Any) {
@@ -45,9 +44,7 @@ class GalleryViewController: UIViewController {
     
     func setImage(_ image: UIImage, withName name: String? = nil) {
         imageView.image = image
-        
-        
-        
+     
         let fileName = name ?? UUID().uuidString
         let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("png")
@@ -86,9 +83,7 @@ class GalleryViewController: UIViewController {
     
     present(pickerController, animated: true)
     }
-    
 }
-
 
 extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
    
@@ -110,4 +105,5 @@ extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationCon
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
 }
