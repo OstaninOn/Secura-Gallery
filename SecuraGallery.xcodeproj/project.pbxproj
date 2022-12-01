@@ -16,6 +16,8 @@
 		1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4429118C1400744C94 /* LaunchScreen.storyboard */; };
 		1F8E8D4F291198F900744C94 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4D291198F900744C94 /* GalleryViewController.swift */; };
 		1F8E8D50291198F900744C94 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4E291198F900744C94 /* GalleryViewController.xib */; };
+		38427CAF2939258A004FDCA8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38427CAD29392589004FDCA8 /* ImageCell.swift */; };
+		38427CB02939258A004FDCA8 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38427CAE29392589004FDCA8 /* ImageCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		1F8E8D4D291198F900744C94 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F8E8D4E291198F900744C94 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
 		271D720087A5BD4BB1B8D217 /* Pods-SecuraGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecuraGallery.debug.xcconfig"; path = "Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery.debug.xcconfig"; sourceTree = "<group>"; };
+		38427CAD29392589004FDCA8 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		38427CAE29392589004FDCA8 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		A09F54DF958BB3AA9427D8D6 /* Pods-SecuraGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecuraGallery.release.xcconfig"; path = "Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,8 @@
 				1F7268E1291BEA0A00E04068 /* WebViewViewController.swift */,
 				1F8E8D4D291198F900744C94 /* GalleryViewController.swift */,
 				1F8E8D4E291198F900744C94 /* GalleryViewController.xib */,
+				38427CAD29392589004FDCA8 /* ImageCell.swift */,
+				38427CAE29392589004FDCA8 /* ImageCell.xib */,
 				1F8E8D3F29118C1300744C94 /* Main.storyboard */,
 				1F8E8D4229118C1400744C94 /* Assets.xcassets */,
 				1F8E8D4429118C1400744C94 /* LaunchScreen.storyboard */,
@@ -159,6 +165,7 @@
 				1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */,
 				1F8E8D50291198F900744C94 /* GalleryViewController.xib in Resources */,
 				1F8E8D4329118C1400744C94 /* Assets.xcassets in Resources */,
+				38427CB02939258A004FDCA8 /* ImageCell.xib in Resources */,
 				1F8E8D4129118C1300744C94 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +224,7 @@
 				1F8E8D4F291198F900744C94 /* GalleryViewController.swift in Sources */,
 				1F8E8D3A29118C1300744C94 /* AppDelegate.swift in Sources */,
 				1F8E8D3C29118C1300744C94 /* SceneDelegate.swift in Sources */,
+				38427CAF2939258A004FDCA8 /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
