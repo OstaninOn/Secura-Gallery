@@ -36,7 +36,7 @@ class WebViewViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(webView)
         webView.load(URLRequest(url: url))
-        //configureButtons()
+        configureButtons()
         
     }
     
@@ -47,19 +47,19 @@ class WebViewViewController: UIViewController {
         
     }
     
-//    private func configureButtons() {
-//        navigationItem.leftBarButtonItems = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
-//
-//        navigationItem.rightBarButtonItems = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapRefresh))
-//    }
-//
-//    @objc private func didTapDone() {
-//      dismiss(animated: true, completion: nil)
-//    }
-//
-//    @objc private func didTapRefresh() {
-//        webView.load(URLRequest(url: url))
-//    }
+    private func configureButtons() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapRefresh))
+    }
+
+    @objc private func didTapDone() {
+      dismiss(animated: true, completion: nil)
+    }
+
+    @objc private func didTapRefresh() {
+        webView.load(URLRequest(url: url))
+    }
     
    
 }

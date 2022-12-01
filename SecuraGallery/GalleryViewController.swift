@@ -13,7 +13,7 @@ class GalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        loadImage()
     }
 
     @IBAction func pickImage(_ sender: Any) {
@@ -22,10 +22,10 @@ class GalleryViewController: UIViewController {
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
             self.showPicker(withSourceType: .camera)
         }
-        let libraryAction = UIAlertAction(title: "Photo Library", style: .cancel) { _ in
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
             self.showPicker(withSourceType: .photoLibrary)
         }
-        let rollAction = UIAlertAction(title: "Photos Album", style: .destructive) { _ in
+        let rollAction = UIAlertAction(title: "Photos Album", style: .default) { _ in
             self.showPicker(withSourceType: .savedPhotosAlbum)
         }
         
