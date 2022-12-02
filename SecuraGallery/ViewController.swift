@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var pinField: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,32 @@ class ViewController: UIViewController {
         showPinButton.setImage(UIImage(systemName: "eye"), for: .normal)
         showPinButton.setImage(UIImage(systemName: "eye.slash"), for: .selected)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Foundation.Notification) {
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
+        
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height + scrollView.adjustedContentInset.bottom)
+        scrollView.setContentOffset(bottomOffset, animated: true)
+    }
+
+    @objc func keyboardWillHide(_ notification: Foundation.Notification) {
+        scrollView.contentInset = .zero
+        let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height + scrollView.adjustedContentInset.bottom)
+        scrollView.setContentOffset(bottomOffset, animated: true)
+        
     }
     
     @IBAction func webButton(_ sender: UIButton) {
