@@ -9,11 +9,22 @@ import UIKit
 
 class GalleryViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var images = [UIImage]()
+    var imagesPerLine: CGFloat = 3
+    let imageSpacing: CGFloat = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.register(ImageCell.nib(), forCellWithReuseIdentifier: ImageCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        loadImage()
     }
 
     @IBAction func pickImage(_ sender: Any) {
@@ -22,10 +33,10 @@ class GalleryViewController: UIViewController {
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
             self.showPicker(withSourceType: .camera)
         }
-        let libraryAction = UIAlertAction(title: "Photo Library", style: .cancel) { _ in
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
             self.showPicker(withSourceType: .photoLibrary)
         }
-        let rollAction = UIAlertAction(title: "Photos Album", style: .destructive) { _ in
+        let rollAction = UIAlertAction(title: "Photos Album", style: .default) { _ in
             self.showPicker(withSourceType: .savedPhotosAlbum)
         }
         
@@ -43,7 +54,8 @@ class GalleryViewController: UIViewController {
     }
     
     func setImage(_ image: UIImage, withName name: String? = nil) {
-        imageView.image = image
+        images.append(image)
+        collectionView.reloadData()
      
         let fileName = name ?? UUID().uuidString
         let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -51,18 +63,25 @@ class GalleryViewController: UIViewController {
         guard let data = image.pngData() else { return }
         deletePreviousImage()
         try? data.write(to: fileURL)
-        UserDefaults.standard.set(fileName, forKey: "imageName")
+        UserDefaults.standard.set(fileName, forKey: "\(images.count)imageName")
+        UserDefaults.standard.set(images.count, forKey: "images.count")
     }
     
     private func loadImage() {
-        guard let fileName = UserDefaults.standard.string(forKey: "imageName") else { return }
+        let count = UserDefaults.standard.integer(forKey: "images.count")
+        guard count > 0 else { return }
         
-        let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("png")
-        
-        guard let savedData = try? Data(contentsOf: fileURL),
-              let image = UIImage(data: savedData) else { return }
-        imageView.image = image
+        for index in 1...count {
+            guard let fileName = UserDefaults.standard.string(forKey: "\(index)imageName") else { continue }
+            
+            let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("png")
+            
+            guard let savedData = try? Data(contentsOf: fileURL),
+                  let image = UIImage(data: savedData) else { continue }
+            images.append(image)
+        }
+        collectionView.reloadData()
     }
     
     private func deletePreviousImage() {
@@ -89,7 +108,6 @@ extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationCon
    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
-        imageView.image = image
         var name: String?
         if let imageName = info[.imageURL] as? URL {
             name = imageName.lastPathComponent
@@ -104,6 +122,40 @@ extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationCon
         let okAction = UIAlertAction(title: "back", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+    
+}
+
+extension GalleryViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.row
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:ImageCell.identifier, for: indexPath) as? ImageCell else { return UICollectionViewCell()}
+        
+        cell.configure(withImage: images[index])
+        
+        return cell
+    }
+}
+
+extension GalleryViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout : UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let totalHorizontalSpacing = (imagesPerLine - 1) * imageSpacing
+        let width = (collectionView.bounds.width - totalHorizontalSpacing) / imagesPerLine
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return imageSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return imageSpacing
     }
     
 }
