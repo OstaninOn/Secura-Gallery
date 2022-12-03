@@ -4,7 +4,7 @@
 //
 //  Created by  aleksandr on 1.11.22.
 //
-
+import OpalImagePicker
 import UIKit
 import LocalAuthentication
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_2022-11-06_15-08-50" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
-                                <rect key="frame" x="0.0" y="-3" width="374" height="812"/>
+                                <rect key="frame" x="0.0" y="-3" width="373" height="812"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                             </imageView>
@@ -270,6 +270,63 @@
             </objects>
             <point key="canvasLocation" x="101.59999999999999" y="2.9556650246305418"/>
         </scene>
+        <!--Schow Photo View Controller-->
+        <scene sceneID="NQq-oh-HEk">
+            <objects>
+                <viewController storyboardIdentifier="SchowPhotoViewController" id="8l9-V0-qOO" customClass="SchowPhotoViewController" customModule="SecuraGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="24K-rq-9aB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="60" translatesAutoresizingMaskIntoConstraints="NO" id="aLo-zA-tZJ">
+                                <rect key="frame" x="0.0" y="47" width="375" height="731"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pM3-bn-1lD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="leading" secondItem="aLo-zA-tZJ" secondAttribute="leading" id="DKd-gU-G5T"/>
+                                    <constraint firstAttribute="bottom" secondItem="pM3-bn-1lD" secondAttribute="bottom" id="Ll6-tt-Cdh"/>
+                                    <constraint firstAttribute="trailing" secondItem="pM3-bn-1lD" secondAttribute="trailing" id="Nxa-Ss-aiy"/>
+                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="centerX" secondItem="aLo-zA-tZJ" secondAttribute="centerX" id="O3H-Ky-r6P"/>
+                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="top" secondItem="aLo-zA-tZJ" secondAttribute="top" id="VgB-xd-wmc"/>
+                                    <constraint firstItem="pM3-bn-1lD" firstAttribute="centerY" secondItem="aLo-zA-tZJ" secondAttribute="centerY" id="nRP-iA-eoY"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-Ga-jhq">
+                                <rect key="frame" x="324" y="47" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="DY5-0E-Vz3"/>
+                                    <constraint firstAttribute="width" constant="35" id="geg-AU-Xnv"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="dismissVC:" destination="8l9-V0-qOO" eventType="touchUpInside" id="MKS-lO-GDa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zb7-WN-Gdz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zb7-WN-Gdz" firstAttribute="trailing" secondItem="aLo-zA-tZJ" secondAttribute="trailing" id="50Z-NO-I8h"/>
+                            <constraint firstItem="aLo-zA-tZJ" firstAttribute="leading" secondItem="Zb7-WN-Gdz" secondAttribute="leading" id="XFY-XA-wcK"/>
+                            <constraint firstItem="sY0-Ga-jhq" firstAttribute="top" secondItem="Zb7-WN-Gdz" secondAttribute="top" id="XHd-8M-LVs"/>
+                            <constraint firstItem="Zb7-WN-Gdz" firstAttribute="trailing" secondItem="sY0-Ga-jhq" secondAttribute="trailing" constant="16" id="YVd-EX-MWm"/>
+                            <constraint firstItem="aLo-zA-tZJ" firstAttribute="top" secondItem="Zb7-WN-Gdz" secondAttribute="top" id="dMb-4U-vxf"/>
+                            <constraint firstItem="Zb7-WN-Gdz" firstAttribute="bottom" secondItem="aLo-zA-tZJ" secondAttribute="bottom" id="gPO-he-iC8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="pM3-bn-1lD" id="Zlx-31-sL1"/>
+                        <outlet property="scrollView" destination="aLo-zA-tZJ" id="eKN-VR-91f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jex-5C-ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936.79999999999995" y="2.9556650246305418"/>
+        </scene>
     </scenes>
     <resources>
         <image name="eye" catalog="system" width="128" height="79"/>
@@ -277,8 +334,12 @@
         <image name="key.viewfinder" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="photo_2022-11-06_15-08-50" width="640" height="1136"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

@@ -1,16 +1,20 @@
 PODS:
+  - OpalImagePicker (2.1.2)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - OpalImagePicker (~> 2.1.0)
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
+    - OpalImagePicker
     - SnapKit
 
 SPEC CHECKSUMS:
+  OpalImagePicker: 51cbf714f337a93c2631219f1a90389ba936077f
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 6b70f3b9a8714e4127cca03516220b3c6252ac01
+PODFILE CHECKSUM: ddf246b5bd6de2c490875bb21329472ee84ff384
 
 COCOAPODS: 1.11.3

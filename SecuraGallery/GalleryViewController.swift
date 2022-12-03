@@ -4,20 +4,23 @@
 //
 //  Created by  aleksandr on 1.11.22.
 //
-
 import UIKit
+import OpalImagePicker
+import Photos
 
 class GalleryViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var images = [UIImage]()
-    var imagesPerLine: CGFloat = 3
-    let imageSpacing: CGFloat = 1
+    var images: [UIImage] = []
+    var imagesPerLine: CGFloat = 4
+    let imageSpacing: CGFloat = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        let gesture = UIPinchGestureRecognizer(target: self, action: #selector(changeCountInRow))
+        collectionView.addGestureRecognizer(gesture)
     }
     
     private func setupCollectionView() {
@@ -36,20 +39,40 @@ class GalleryViewController: UIViewController {
         let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
             self.showPicker(withSourceType: .photoLibrary)
         }
-        let rollAction = UIAlertAction(title: "Photos Album", style: .default) { _ in
-            self.showPicker(withSourceType: .savedPhotosAlbum)
-        }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let urlAction = UIAlertAction(title: "URL", style: .default){[weak self] _ in
+            let urlAlert = UIAlertController(title: "enter URL", message: nil, preferredStyle: .alert)
+            urlAlert.addTextField{textField in
+                textField.placeholder = "enter URL"
+            }
+            let acceptAction = UIAlertAction(title: "Accept", style: .default){_ in
+                let text = urlAlert.textFields?.first?.text ?? ""
+                guard let url = URL(string: text) else { return }
+                DispatchQueue.global().async {
+                    if let data = try? Data(contentsOf: url) {
+                        DispatchQueue.main.async {
+                            guard let newImage = UIImage(data: data) else { return }
+                            self?.setImage(newImage)
+                        }
+                    }
+                }
+            }
+            let cancelAlert = UIAlertAction(title: "Cancel", style: .default)
+            urlAlert.addAction(acceptAction)
+            urlAlert.addAction(cancelAction)
+            self?.present(urlAlert, animated: true)
+        }
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             alert.addAction(cameraAction)
         }
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             alert.addAction(libraryAction)
         }
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            alert.addAction(rollAction)
-        }
-        
+
+        alert.addAction(urlAction)
+        alert.addAction(cancelAction)
         present(alert, animated: true)
     }
     
@@ -64,19 +87,57 @@ class GalleryViewController: UIViewController {
         deletePreviousImage()
         try? data.write(to: fileURL)
         UserDefaults.standard.set(fileName, forKey: "\(images.count)imageName")
+        collectionView.reloadData()
         UserDefaults.standard.set(images.count, forKey: "images.count")
     }
+    
+    @objc private func changeCountInRow(recognizer : UIPinchGestureRecognizer) {
+        if recognizer.state == .ended {
+            switch recognizer.scale {
+            case 0...1:
+                if Int(imagesPerLine) < images.count {
+                    imagesPerLine += 1
+                }
+            default:
+                if imagesPerLine > 1 {
+                    imagesPerLine -= 1
+                }
+            }
+        }
+        collectionView.reloadData()
+    }
+    
+    
+    
+    
+    private func showLibrary() {
+        let imagePicker = OpalImagePickerController()
+        presentOpalImagePickerController(imagePicker, animated: true, select: {
+            (assets) in
+            for index in 0...assets.count - 1 {
+                let img = assets[index].getAssetThumbnail()
+                self.setImage(img)
+            }
+            self.presentedViewController?.dismiss(animated: true)
+        }, cancel: {
+            self.presentedViewController?.dismiss(animated: true)
+        })
+    }
+
+    
+    
+    
     
     private func loadImage() {
         let count = UserDefaults.standard.integer(forKey: "images.count")
         guard count > 0 else { return }
-        
+
         for index in 1...count {
             guard let fileName = UserDefaults.standard.string(forKey: "\(index)imageName") else { continue }
-            
+
             let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
             let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("png")
-            
+
             guard let savedData = try? Data(contentsOf: fileURL),
                   let image = UIImage(data: savedData) else { continue }
             images.append(image)
@@ -104,7 +165,7 @@ class GalleryViewController: UIViewController {
     }
 }
 
-extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
@@ -123,39 +184,53 @@ extension GalleryViewController: UIImagePickerControllerDelegate,UINavigationCon
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
 }
 
-extension GalleryViewController : UICollectionViewDelegate, UICollectionViewDataSource {
-    
+extension GalleryViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        
+        guard let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ShowPhotoViewController") as? SchowPhotoViewController else { return }
+        
+        destinationViewController.image = images[indexPath.row]
+        destinationViewController.modalPresentationStyle = .fullScreen
+        present(destinationViewController, animated: true)
+    }
+}
+
+extension GalleryViewController : UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         images.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let index = indexPath.row
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:ImageCell.identifier, for: indexPath) as? ImageCell else { return UICollectionViewCell()}
-        
+
         cell.configure(withImage: images[index])
-        
+
         return cell
     }
 }
 
 extension GalleryViewController : UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout : UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let totalHorizontalSpacing = (imagesPerLine - 1) * imageSpacing
         let width = (collectionView.bounds.width - totalHorizontalSpacing) / imagesPerLine
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return imageSpacing
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return imageSpacing
-    }
-    
+
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return imageSpacing
+        }
+
 }
+
