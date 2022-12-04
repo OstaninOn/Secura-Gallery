@@ -3,7 +3,7 @@
 //  SecuraGallery
 //
 //  Created by  aleksandr on 1.11.22.
-//
+
 import UIKit
 import OpalImagePicker
 import Photos
@@ -28,6 +28,20 @@ class GalleryViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         loadImage()
+    }
+
+    private func showPicker() {
+        let imagePicker = OpalImagePickerController()
+        presentOpalImagePickerController(imagePicker, animated: true, select: {
+            (assets) in
+            for index in 0...assets.count - 1 {
+                let img = assets[index].getAssetThumbnail()
+                self.setImage(img)
+            }
+            self.presentedViewController?.dismiss(animated: true)
+        }, cancel: {
+            self.presentedViewController?.dismiss(animated: true)
+        })
     }
 
     @IBAction func pickImage(_ sender: Any) {
@@ -58,7 +72,7 @@ class GalleryViewController: UIViewController {
                     }
                 }
             }
-            let cancelAlert = UIAlertAction(title: "Cancel", style: .default)
+            let cencelAlert = UIAlertAction(title: "Cancel", style: .default)
             urlAlert.addAction(acceptAction)
             urlAlert.addAction(cancelAction)
             self?.present(urlAlert, animated: true)
@@ -90,7 +104,7 @@ class GalleryViewController: UIViewController {
         collectionView.reloadData()
         UserDefaults.standard.set(images.count, forKey: "images.count")
     }
-    
+ 
     @objc private func changeCountInRow(recognizer : UIPinchGestureRecognizer) {
         if recognizer.state == .ended {
             switch recognizer.scale {
@@ -106,28 +120,7 @@ class GalleryViewController: UIViewController {
         }
         collectionView.reloadData()
     }
-    
-    
-    
-    
-    private func showLibrary() {
-        let imagePicker = OpalImagePickerController()
-        presentOpalImagePickerController(imagePicker, animated: true, select: {
-            (assets) in
-            for index in 0...assets.count - 1 {
-                let img = assets[index].getAssetThumbnail()
-                self.setImage(img)
-            }
-            self.presentedViewController?.dismiss(animated: true)
-        }, cancel: {
-            self.presentedViewController?.dismiss(animated: true)
-        })
-    }
 
-    
-    
-    
-    
     private func loadImage() {
         let count = UserDefaults.standard.integer(forKey: "images.count")
         guard count > 0 else { return }
@@ -190,7 +183,7 @@ extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         
-        guard let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ShowPhotoViewController") as? SchowPhotoViewController else { return }
+        guard let destinationViewController = storyboard.instantiateViewController(withIdentifier: "SchowPhotoViewController") as? SchowPhotoViewController else { return }
         
         destinationViewController.image = images[indexPath.row]
         destinationViewController.modalPresentationStyle = .fullScreen

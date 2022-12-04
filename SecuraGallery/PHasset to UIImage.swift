@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Foundation
+import OpalImagePicker
 import Photos
 
 extension PHAsset {
