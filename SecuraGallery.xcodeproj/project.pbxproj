@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F27149A293BA72B0011142E /* PHasset to UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F271499293BA72B0011142E /* PHasset to UIImage.swift */; };
 		1F27149E293BCAD20011142E /* SchowPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27149D293BCAD20011142E /* SchowPhotoViewController.swift */; };
 		1F7268E2291BEA0A00E04068 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7268E1291BEA0A00E04068 /* WebViewViewController.swift */; };
 		1F8E8D3A29118C1300744C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D3929118C1300744C94 /* AppDelegate.swift */; };
@@ -24,8 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F271493293A867E0011142E /* OpalImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpalImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F271499293BA72B0011142E /* PHasset to UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHasset to UIImage.swift"; sourceTree = "<group>"; };
 		1F27149D293BCAD20011142E /* SchowPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchowPhotoViewController.swift; sourceTree = "<group>"; };
 		1F7268E1291BEA0A00E04068 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		1F8E8D3629118C1300744C94 /* SecuraGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecuraGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +57,6 @@
 		1C78D893733279E200890361 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F271493293A867E0011142E /* OpalImagePicker.framework */,
 				76D392FE4E52F3CF0FC45056 /* Pods_SecuraGallery.framework */,
 			);
 			name = Frameworks;
@@ -94,7 +90,6 @@
 				1F8E8D4D291198F900744C94 /* GalleryViewController.swift */,
 				1F8E8D4E291198F900744C94 /* GalleryViewController.xib */,
 				1F27149D293BCAD20011142E /* SchowPhotoViewController.swift */,
-				1F271499293BA72B0011142E /* PHasset to UIImage.swift */,
 				38427CAD29392589004FDCA8 /* ImageCell.swift */,
 				38427CAE29392589004FDCA8 /* ImageCell.xib */,
 				1F8E8D3F29118C1300744C94 /* Main.storyboard */,
@@ -238,7 +233,6 @@
 				1F8E8D3C29118C1300744C94 /* SceneDelegate.swift in Sources */,
 				38427CAF2939258A004FDCA8 /* ImageCell.swift in Sources */,
 				1F27149E293BCAD20011142E /* SchowPhotoViewController.swift in Sources */,
-				1F27149A293BA72B0011142E /* PHasset to UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

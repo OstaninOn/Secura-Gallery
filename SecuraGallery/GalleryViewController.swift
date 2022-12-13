@@ -5,8 +5,7 @@
 //  Created by  aleksandr on 1.11.22.
 
 import UIKit
-import OpalImagePicker
-import Photos
+import PhotosUI
 
 class GalleryViewController: UIViewController {
 
@@ -30,20 +29,6 @@ class GalleryViewController: UIViewController {
         loadImage()
     }
 
-    private func showPicker() {
-        let imagePicker = OpalImagePickerController()
-        presentOpalImagePickerController(imagePicker, animated: true, select: {
-            (assets) in
-            for index in 0...assets.count - 1 {
-                let img = assets[index].getAssetThumbnail()
-                self.setImage(img)
-            }
-            self.presentedViewController?.dismiss(animated: true)
-        }, cancel: {
-            self.presentedViewController?.dismiss(animated: true)
-        })
-    }
-
     @IBAction func pickImage(_ sender: Any) {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -51,11 +36,20 @@ class GalleryViewController: UIViewController {
             self.showPicker(withSourceType: .camera)
         }
         let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
+      
+            var config = PHPickerConfiguration()
+            config.selectionLimit = 0
+
+            let phPickerVC = PHPickerViewController(configuration: config)
+            phPickerVC.delegate = self
+            self.present(phPickerVC, animated: true)
+            
             self.showPicker(withSourceType: .photoLibrary)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let urlAction = UIAlertAction(title: "URL", style: .default){[weak self] _ in
+        
+        let urlAction = UIAlertAction(title: "URL", style: .default) { [weak self] _ in
             let urlAlert = UIAlertController(title: "enter URL", message: nil, preferredStyle: .alert)
             urlAlert.addTextField{textField in
                 textField.placeholder = "enter URL"
@@ -98,7 +92,6 @@ class GalleryViewController: UIViewController {
         let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("png")
         guard let data = image.pngData() else { return }
-        deletePreviousImage()
         try? data.write(to: fileURL)
         UserDefaults.standard.set(fileName, forKey: "\(images.count)imageName")
         collectionView.reloadData()
@@ -120,8 +113,9 @@ class GalleryViewController: UIViewController {
         }
         collectionView.reloadData()
     }
-
+    
     private func loadImage() {
+
         let count = UserDefaults.standard.integer(forKey: "images.count")
         guard count > 0 else { return }
 
@@ -138,15 +132,6 @@ class GalleryViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    private func deletePreviousImage() {
-        guard let fileName = UserDefaults.standard.string(forKey: "imageName") else { return }
-        UserDefaults.standard.removeObject(forKey: "imageName")
-        
-        let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL).appendingPathExtension("png")
-        try? FileManager.default.removeItem(at: fileURL)
-    }
-    
     private func showPicker(withSourceType sourceType: UIImagePickerController.SourceType) {
     let pickerController = UIImagePickerController()
     pickerController.delegate = self
@@ -156,10 +141,24 @@ class GalleryViewController: UIViewController {
     
     present(pickerController, animated: true)
     }
+    
 }
-
-extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-   
+extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+                if let image = object as? UIImage {
+                    self.images.append(image)
+                }
+                DispatchQueue.main.async { [self] in
+                    collectionView.reloadData()
+                }
+            }
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         var name: String?
@@ -168,7 +167,7 @@ extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         setImage(image, withName: name)
         self.presentedViewController?.dismiss(animated: true)
-    }
+            }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.presentedViewController?.dismiss(animated: true)
@@ -180,6 +179,7 @@ extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationCo
 }
 
 extension GalleryViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         
