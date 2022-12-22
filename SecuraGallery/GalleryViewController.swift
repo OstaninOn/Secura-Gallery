@@ -30,12 +30,13 @@ class GalleryViewController: UIViewController {
     }
 
     @IBAction func pickImage(_ sender: Any) {
-        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+        let cameraSelection = NSLocalizedString("notificationCamera", comment: "the user will see the camera button")
+        let cameraAction = UIAlertAction(title: cameraSelection, style: .default) { _ in
             self.showPicker(withSourceType: .camera)
         }
-        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
+        let photoSelection = NSLocalizedString("notificationPhoto", comment: "the user will see the photo library button")
+        let libraryAction = UIAlertAction(title: photoSelection, style: .default) { _ in
       
             var config = PHPickerConfiguration()
             config.selectionLimit = 0
@@ -47,14 +48,17 @@ class GalleryViewController: UIViewController {
             self.showPicker(withSourceType: .photoLibrary)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        let urlAction = UIAlertAction(title: "URL", style: .default) { [weak self] _ in
-            let urlAlert = UIAlertController(title: "enter URL", message: nil, preferredStyle: .alert)
+        let cencelSelection = NSLocalizedString("сancelNotificationGallery", comment: "the user will see a cancel button")
+        let cancelAction = UIAlertAction(title: cencelSelection, style: .cancel)
+        let urlSelection = NSLocalizedString("urlNotification", comment: "the user will see a URL button")
+        let urlAction = UIAlertAction(title: urlSelection, style: .default) { [weak self] _ in
+            let urlAlertTitl = NSLocalizedString("notificationTitleUrl", comment: "the user will see a notification title url")
+            let urlAlert = UIAlertController(title: urlAlertTitl, message: nil, preferredStyle: .alert)
             urlAlert.addTextField{textField in
-                textField.placeholder = "enter URL"
+                textField.placeholder = "https://"
             }
-            let acceptAction = UIAlertAction(title: "Accept", style: .default){_ in
+            let acceptUrl = NSLocalizedString("notificationAccept", comment: "the user will see a follow the link button")
+            let acceptAction = UIAlertAction(title: acceptUrl, style: .default){_ in
                 let text = urlAlert.textFields?.first?.text ?? ""
                 guard let url = URL(string: text) else { return }
                 DispatchQueue.global().async {
@@ -66,7 +70,8 @@ class GalleryViewController: UIViewController {
                     }
                 }
             }
-            let cencelAlert = UIAlertAction(title: "Cancel", style: .default)
+            let cencelSelectionUrl = NSLocalizedString("сancelNotificationUrl", comment: "the user will see a cancel alert url button")
+            let cencelAlert = UIAlertAction(title: cencelSelectionUrl, style: .default)
             urlAlert.addAction(acceptAction)
             urlAlert.addAction(cancelAction)
             self?.present(urlAlert, animated: true)
@@ -171,8 +176,11 @@ extension GalleryViewController: UIImagePickerControllerDelegate, UINavigationCo
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.presentedViewController?.dismiss(animated: true)
-        let alert = UIAlertController(title: "Strange", message: "You didn't pick any image", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "back", style: .default)
+        let errorNotification = NSLocalizedString("notificationErrorAlert", comment: "the user will see error notification file not selected")
+        let messageError = NSLocalizedString("notificationAlertmessageError", comment: "the user will see error notification")
+        let alert = UIAlertController(title: errorNotification, message: messageError, preferredStyle: .alert)
+        let messageErrorBack = NSLocalizedString("closeErrorMessage", comment: "the user will see back button message error")
+        let okAction = UIAlertAction(title: messageErrorBack, style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
     }

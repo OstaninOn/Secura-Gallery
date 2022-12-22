@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        pinField.placeholder = " password "
+        let password = NSLocalizedString("enterPassword", comment: "the user will see password entry field")
+        pinField.placeholder = password
         pinField.layer.shadowOffset = CGSize(width: 5, height: 5)
         pinField.layer.shadowOpacity = 1
         pinField.layer.shadowRadius = 2
@@ -116,13 +116,13 @@ class ViewController: UIViewController {
             ) { success, error in
                 DispatchQueue.main.async {
                     guard success, error == nil else {
-                        self.statusLabel.text = "No access:\n" + "Failed"
+                        self.statusLabel.text = "ошибка"
                         self.statusLabel.textColor = .red
                         self.showAlert(title: "ошибка", message: "попробуйте снова")
                         return
                     }
                     
-                    self.statusLabel.text = "Your Biometric Status:\n" + "Logged In"
+                    self.statusLabel.text = "успешно:\n" + "успешно"
                     self.statusLabel.textColor = .green
                     self.view.endEditing(true)
                     let gallery = GalleryViewController()

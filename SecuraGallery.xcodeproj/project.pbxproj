@@ -17,6 +17,8 @@
 		1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4429118C1400744C94 /* LaunchScreen.storyboard */; };
 		1F8E8D4F291198F900744C94 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4D291198F900744C94 /* GalleryViewController.swift */; };
 		1F8E8D50291198F900744C94 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E8D4E291198F900744C94 /* GalleryViewController.xib */; };
+		1FF81E5329545EB600A6DB51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FF81E5529545EB600A6DB51 /* InfoPlist.strings */; };
+		1FF81E5B29546F9600A6DB51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FF81E5D29546F9600A6DB51 /* Localizable.strings */; };
 		38427CAF2939258A004FDCA8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38427CAD29392589004FDCA8 /* ImageCell.swift */; };
 		38427CB02939258A004FDCA8 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38427CAE29392589004FDCA8 /* ImageCell.xib */; };
 		60A2880D5A353356908980EE /* Pods_SecuraGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D392FE4E52F3CF0FC45056 /* Pods_SecuraGallery.framework */; };
@@ -35,6 +37,13 @@
 		1F8E8D4729118C1400744C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8E8D4D291198F900744C94 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1F8E8D4E291198F900744C94 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		1FF81E472954486D00A6DB51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		1FF81E482954486D00A6DB51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1FF81E4A295448CB00A6DB51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1FF81E5429545EB600A6DB51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1FF81E5629545EBA00A6DB51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1FF81E5C29546F9600A6DB51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FF81E5E29546F9A00A6DB51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		271D720087A5BD4BB1B8D217 /* Pods-SecuraGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecuraGallery.debug.xcconfig"; path = "Target Support Files/Pods-SecuraGallery/Pods-SecuraGallery.debug.xcconfig"; sourceTree = "<group>"; };
 		38427CAD29392589004FDCA8 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		38427CAE29392589004FDCA8 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
@@ -86,8 +95,10 @@
 				1F8E8D3929118C1300744C94 /* AppDelegate.swift */,
 				1F8E8D3B29118C1300744C94 /* SceneDelegate.swift */,
 				1F8E8D3D29118C1300744C94 /* ViewController.swift */,
+				1FF81E5529545EB600A6DB51 /* InfoPlist.strings */,
 				1F7268E1291BEA0A00E04068 /* WebViewViewController.swift */,
 				1F8E8D4D291198F900744C94 /* GalleryViewController.swift */,
+				1FF81E5D29546F9600A6DB51 /* Localizable.strings */,
 				1F8E8D4E291198F900744C94 /* GalleryViewController.xib */,
 				1F27149D293BCAD20011142E /* SchowPhotoViewController.swift */,
 				38427CAD29392589004FDCA8 /* ImageCell.swift */,
@@ -153,6 +164,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 1F8E8D2D29118C1300744C94;
 			productRefGroup = 1F8E8D3729118C1300744C94 /* Products */;
@@ -170,7 +182,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F8E8D4629118C1400744C94 /* LaunchScreen.storyboard in Resources */,
+				1FF81E5329545EB600A6DB51 /* InfoPlist.strings in Resources */,
 				1F8E8D50291198F900744C94 /* GalleryViewController.xib in Resources */,
+				1FF81E5B29546F9600A6DB51 /* Localizable.strings in Resources */,
 				1F8E8D4329118C1400744C94 /* Assets.xcassets in Resources */,
 				38427CB02939258A004FDCA8 /* ImageCell.xib in Resources */,
 				1F8E8D4129118C1300744C94 /* Main.storyboard in Resources */,
@@ -243,6 +257,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F8E8D4029118C1300744C94 /* Base */,
+				1FF81E472954486D00A6DB51 /* ru */,
+				1FF81E4A295448CB00A6DB51 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -251,8 +267,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F8E8D4529118C1400744C94 /* Base */,
+				1FF81E482954486D00A6DB51 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1FF81E5529545EB600A6DB51 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FF81E5429545EB600A6DB51 /* en */,
+				1FF81E5629545EBA00A6DB51 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1FF81E5D29546F9600A6DB51 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FF81E5C29546F9600A6DB51 /* en */,
+				1FF81E5E29546F9A00A6DB51 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -262,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -322,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

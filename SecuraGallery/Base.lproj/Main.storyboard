@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_2022-11-06_15-08-50" translatesAutoresizingMaskIntoConstraints="NO" id="HnK-QM-Gf7">
-                                <rect key="frame" x="0.0" y="-4" width="373" height="813"/>
+                                <rect key="frame" x="0.0" y="-4" width="372" height="812"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                             </imageView>
@@ -108,10 +108,10 @@
                                                             <constraint firstAttribute="width" constant="200" id="EVj-Un-bHT"/>
                                                             <constraint firstAttribute="height" constant="55" id="pqS-t4-h1l"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="30"/>
+                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="25"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="    Open">
+                                                        <state key="normal" title="   Open">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <imageReference key="image" image="key.viewfinder" catalog="system" symbolScale="large"/>
                                                         </state>
@@ -151,7 +151,7 @@
                                                             <constraint firstAttribute="width" constant="200" id="A3d-jF-Hym"/>
                                                             <constraint firstAttribute="height" constant="55" id="spi-fW-cce"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="30"/>
+                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="25"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="   Use ID">
@@ -194,7 +194,7 @@
                                                             <constraint firstAttribute="width" constant="200" id="T7K-Xa-wNi"/>
                                                             <constraint firstAttribute="height" constant="55" id="hsh-0r-euM"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="30"/>
+                                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="25"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="  Google">
