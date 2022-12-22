@@ -7,4 +7,5 @@ target 'SecuraGallery' do
 
   # Pods for SecuraGallery
 pod 'SnapKit', '~> 5.6.0'
+pod 'OpalImagePicker', '~> 2.1.0'
 end
